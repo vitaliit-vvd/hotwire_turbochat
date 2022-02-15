@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Rails.application.credentials.dig(:postgresql, :username) %>
+  password: <%= Rails.application.credentials.dig(:postgresql, :password) %>
+
+development:
+  <<: *default
+  database: hotwire_turbochat_development
+
+test:
+  <<: *default
+  database: hotwire_turbochat_test
+
+production:
+  <<: *default
+  database: hotwire_turbochat_production
+  username: hotwire_turbochat
+  password: <%= ENV["HOTWIRE_TURBOCHAT_DATABASE_PASSWORD"] %>
