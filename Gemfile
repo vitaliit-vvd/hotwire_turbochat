@@ -7,6 +7,7 @@ ruby '3.0.1'
 
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.8'
+gem 'draper', '~> 4.0'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
