@@ -1,24 +1,32 @@
-# README
+## Hotwaire Turbo Chat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Description
 
-Things you may want to cover:
+Simple chat with Hotwire, Turbo and Stimulus.
 
-* Ruby version
+Implemented in Ruby 3.0.1 using Rails 7.0.1 and PostgreSQL.
 
-* System dependencies
+### Launching
 
-* Configuration
+1. Download or clone repo. 
 
-* Database creation
+2. Add postgres credentials
+```bash
+$ EDITOR='nano' rails credentials:edit
+```
 
-* Database initialization
+```
+postgresql:
+    username: ***
+    password: ***
+```
 
-* How to run the test suite
+3. Create database and install all dependencies
+```bash
+$ bin/setup
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4. Start server
+```bash
+$ bin/dev
+```
