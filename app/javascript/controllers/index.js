@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import MessageController from "./message_controller"
 application.register("message", MessageController)
+
+import ScrollController from "./scroll_controller.js"
+application.register("scroll", ScrollController)
