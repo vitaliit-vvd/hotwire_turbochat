@@ -10,6 +10,9 @@
     </div>
     <div class="flex message-author_<%= message.user.id %>">
       <div class="relative mt-1 px-4 pt-1 pb-4 w-max max-w-full text-gray-500 flex min-w-5 message-author_1 rounded-l-md rounded-b-md font-light">
+        <span class='mr-4'>
+          <%= image_tag message.user.avatar.variant(:thumb), class: 'rounded-full' if message.user.avatar.attached? %>
+        </span>
         <em>
           <%= message.user.email %>
         </em>

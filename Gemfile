@@ -24,5 +24,6 @@ end
 
 group :development do
   gem 'faker', '~> 2.19'
+  gem 'faraday', '~> 2.2'
   gem 'rubocop-rails', require: false
 end

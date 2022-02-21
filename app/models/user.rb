@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :messages, -> { sorted }, dependent: :destroy
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_limit: [40, 40]
+  end
 
   def username
     # "john.doe@example.com" -> "John Doe"
