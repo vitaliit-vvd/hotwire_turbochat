@@ -22,5 +22,6 @@ group :development, :test do
 end
 
 group :development do
+  gem 'faker', '~> 2.19'
   gem 'rubocop-rails', require: false
 end
