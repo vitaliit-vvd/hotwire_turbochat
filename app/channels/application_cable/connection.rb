@@ -7,7 +7,7 @@ module ApplicationCable
     def connect
       self.current_user = find_verified_user
 
-      logger.add_tags 'ActionCable', "User #{current_user.id}"
+      logger.add_tags "ActionCable", "User #{current_user.id}"
       # Rails.logger.info "Auth check for connect to ActionCable server"
     end
 
@@ -35,3 +35,4 @@ module ApplicationCable
     end
   end
 end
+

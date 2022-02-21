@@ -5,19 +5,19 @@ export default class extends Controller {
 		dismissAfter: Number,
 		showDelay: Number,
 		removeDelay: Number
-		
+
 	}
 	static classes = ["show", "hide"]
-	
+
 	initialize() {
 		this.hide()
 	}
-	
+
 	connect() {
 		setTimeout(() => {
 			this.show()
 		}, this.showAfter)
-		
+
 		// Auto dimiss if defined
 		if (this.hasDismissAfterValue || true) {
 			setTimeout(() => {
@@ -26,25 +26,25 @@ export default class extends Controller {
 			}, 7000)
 		}
 	}
-	
+
 	close() {
 		this.hide()
-		
+
 		setTimeout(() => {
 			this.element.remove()
 		}, this.removeAfter)
 	}
-	
+
 	show() {
 		this.element.classList.add(...this.showClasses)
 		this.element.classList.remove(...this.hideClasses)
 	}
-	
+
 	hide() {
 		this.element.classList.add(...this.hideClasses)
 		this.element.classList.remove(...this.showClasses)
 	}
-	
+
 	get removeAfter() {
 		if (this.hasRemoveDelayValue) {
 			return this.removeDelayValue
@@ -52,7 +52,7 @@ export default class extends Controller {
 			return 5000
 		}
 	}
-	
+
 	get showAfter() {
 		if (this.hasShowDelayValue) {
 			return this.showDelayValue

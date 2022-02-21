@@ -29,6 +29,13 @@ def create_user(email, password = '123456')
   generate_avatar(user)
 end
 
+def add_image(product)
+  image = "#{Product.types[product.product_type].downcase}-#{rand(1..4)}.png"
+  product.images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', image)),
+                        filename: "#{SecureRandom.uuid}_#{image}", content_type: 'image/png')
+  print '.'
+end
+
 def not_uniq(user, message)
   Like.where(message_id: message.id, user_id: user.id).any?
 end

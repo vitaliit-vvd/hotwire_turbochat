@@ -18,7 +18,7 @@
         <sub class="text-xs absolute right-4 bottom-0 text-gray-400 font-light">
           <%= l(message.created_at, format: :short) %>
         </sub>
-        <sub class="text-xs absolute left-4 bottom-0">
+        <sub class="text-xs absolute left-16 bottom-0">
           <%= link_to like_message_path(message), data: { "turbo-method": :post } do %>
             <%= render partial: "messages/heart", locals: { user: user, message: message } %>
             <%= render partial: "messages/likes_count", locals: { message: message } %>

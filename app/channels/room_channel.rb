@@ -2,8 +2,8 @@
 
 class RoomChannel < ApplicationCable::Channel
   include Turbo::Streams::ActionHelper
-  before_subscribe :room
-  before_unsubscribe :room
+  before_subscribe :set_room
+  before_unsubscribe :set_room
 
   def subscribed
     stream_for @room
@@ -26,22 +26,22 @@ class RoomChannel < ApplicationCable::Channel
 
   private
 
-  def room
+  def set_room
     @room = Room.find_by_title(params[:id])
     @room ||= Room.find_by_id(params[:id])
   end
 
   def update_online_user_count
     @room.broadcast_update_to(@room, target: "room_#{@room.id}_online_users_count",
-                                     partial: 'rooms/user_online_count',
-                                     locals: { count: @room.online_room_users_count })
+                              partial: "rooms/user_online_count",
+                              locals: { count: @room.online_room_users_count })
   end
 
   def update_user_email
     current_user.messages.where(room_id: @room.id).each do |message|
       @room.broadcast_replace_to(@room,
                                  target: "message_#{message.id}_email",
-                                 partial: 'messages/user_online_email',
+                                 partial: "messages/user_online_email",
                                  locals: { message: message })
     end
   end
