@@ -1,0 +1,3 @@
+<%= turbo_frame_tag :rooms do %>
+  <%= render partial: 'users/user', locals: { profile_user: @user, user: current_user } %>
+<% end %>

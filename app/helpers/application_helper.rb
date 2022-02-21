@@ -2,7 +2,6 @@
 
 module ApplicationHelper
   def user_nav_name(user)
-    content_tag(:span, user.username,
-                class: 'font-bold').concat content_tag(:span, ' Logout', class: %w[font-light italic])
+    content_tag(:span, user.username, class: 'font-bold text-gray-400')
   end
 end

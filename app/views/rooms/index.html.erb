@@ -1,6 +1,6 @@
 <%= turbo_stream_from :rooms %>
 
-<%= turbo_frame_tag :rooms do %>
+<%= turbo_frame_tag :rooms, class: 'text-center' do %>
   <%= render @rooms %>
 <% end %>
 
