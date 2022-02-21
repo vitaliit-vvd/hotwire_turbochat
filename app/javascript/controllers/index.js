@@ -7,5 +7,8 @@ import { application } from "./application"
 import MessageController from "./message_controller"
 application.register("message", MessageController)
 
+import RoomChannelController from "./room_channel_controller.js"
+application.register("room-channel", RoomChannelController)
+
 import ScrollController from "./scroll_controller.js"
 application.register("scroll", ScrollController)

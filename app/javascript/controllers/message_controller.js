@@ -6,9 +6,9 @@ export default class extends Controller {
 	
 	connect() {
 		// Set class 'mine' for author message
-		if (this.currentUserId === this.authorId) {
+		if (this.currentUserId && this.currentUserId === this.authorId) {
 			this.element.classList.add(this.mineClass)
-		} else if (this.hasMineClass && this.element.classList.contains(this.mineClass)) {
+		} else if (this.currentUserId && this.hasMineClass && this.element.classList.contains(this.mineClass)) {
 			this.element.classList.remove(this.mineClass)
 		}
 	}

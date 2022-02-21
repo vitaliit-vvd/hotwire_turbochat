@@ -115,6 +115,9 @@ GEM
       reline (>= 0.3.0)
     jsbundling-rails (1.0.0)
       railties (>= 6.0.0)
+    kredis (1.1.0)
+      activesupport (>= 6.0.0)
+      redis (~> 4.2)
     loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -248,6 +251,7 @@ DEPENDENCIES
   faraday (~> 2.2)
   image_processing (~> 1.12)
   jsbundling-rails
+  kredis (~> 1.1)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.1)

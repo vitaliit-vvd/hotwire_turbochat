@@ -29,6 +29,8 @@
 
 /node_modules
 
+/storage/*
+
 # Ignore IDE and OS specific files
 .idea
 .vs
