@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :messages, -> { sorted }, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [40, 40]
   end
@@ -19,6 +20,10 @@ class User < ApplicationRecord
 
   def profile_avatar
     avatar.variant(resize_to_limit: [100, 100]).processed
+  end
+
+  def favorited?(room)
+    favorites.find_by(room: room).present?
   end
 
   private
