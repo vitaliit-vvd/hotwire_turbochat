@@ -19,7 +19,9 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - 'db/migrate/20220221104139_create_active_storage_tables.active_storage.rb'
+    - 'app/controllers/registrations_controller.rb'
 
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/20220221104139_create_active_storage_tables.active_storage.rb'
+    - 'app/controllers/registrations_controller.rb'

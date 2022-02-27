@@ -52,10 +52,10 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def remove_unused_password(params)
-    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-      params[:user].delete(:current_password)
-    end
+    return unless params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+
+    params[:user].delete(:password)
+    params[:user].delete(:password_confirmation)
+    params[:user].delete(:current_password)
   end
 end

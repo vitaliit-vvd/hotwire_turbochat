@@ -7,11 +7,11 @@ class MessagesController < ApplicationController
   def create
     @new_message = current_user.messages.build(strong_params)
 
-    if @new_message.save
-      room = @new_message.room
-      @new_message.broadcast_append_to room, target: "room_#{room.id}_messages",
-                                             locals: { user: current_user, message: @new_message.decorate }
-    end
+    return unless @new_message.save
+
+    room = @new_message.room
+    @new_message.broadcast_append_to room, target: "room_#{room.id}_messages",
+                                           locals: { user: current_user, message: @new_message.decorate }
   end
 
   def like

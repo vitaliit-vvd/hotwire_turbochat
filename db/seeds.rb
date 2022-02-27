@@ -82,10 +82,10 @@ while likes < MAX_LIKES_COUNT
 end
 
 # add favorite
-User.all.each do |user|
+User.all.each do |u|
   room_ids = Room.pluck(:id)
   room_ids.sample(rand(1..room_ids.size)).each do |room_id|
-    user.favorites.create(room_id: room_id)
+    u.favorites.create(room_id: room_id)
     print '.'
   end
 end
