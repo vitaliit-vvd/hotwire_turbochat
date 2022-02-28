@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show, as: :account
   resources :rooms, only: %i[show create], param: :title do
+    get :favorites, on: :collection
     resource :favorites, only: %i[create destroy]
   end
   resources :messages, only: :create do

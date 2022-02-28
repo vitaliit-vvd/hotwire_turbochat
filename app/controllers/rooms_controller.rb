@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all
     @new_room = Room.new
+    @rooms = Room.order(created_at: :desc)
   end
 
   def show
@@ -14,7 +15,14 @@ class RoomsController < ApplicationController
 
   def create
     @new_room = Room.new(user: current_user)
+    return unless @new_room.save
 
-    @new_room.broadcast_append_to :rooms if @new_room.save
+    @new_room.broadcast_prepend_to :rooms, partial: 'rooms/room',
+                                           locals: { user: current_user, room: @new_room }
+  end
+
+  def favorites
+    @rooms = Room.favorited_by(current_user&.email)
+    @new_room = Room.new
   end
 end
